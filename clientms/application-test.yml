@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:fatec-db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: aluno
+    password: segredo
+  jpa:
+    hibernate:
+      ddl-auto: create-drop   # Cria as tabelas no início e remove ao final
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+    show-sql: true            # Exibe SQL no console (útil para debug)
+  h2:
+    console:
+      enabled: true           # Ativa console do H2 em /h2-console
+      path: /h2-console
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
